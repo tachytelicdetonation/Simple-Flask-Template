@@ -4,7 +4,6 @@ import os
 import cv2
 import sys
 
-import scipy.misc as sm
 from werkzeug.utils import secure_filename
 from PIL import Image
 
@@ -18,7 +17,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 def save_image(path, image):
-    sm.imsave(path, image)
+    cv2.imwrite(path, image)
 
 def allowed_file(filename):
     return '.' in filename and \
